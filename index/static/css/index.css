@@ -1,0 +1,285 @@
+/* 全局样式 */
+a {
+    color: #333;
+}
+
+a:hover {
+    text-decoration: none;
+    /*color: #ffff00 !important;*/
+}
+
+li {
+    list-style: none
+}
+
+body {
+    background-color: #f5f7f9;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #b9b9b9;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #343a40;
+}
+
+*::selection {
+    background: #ccc;
+}
+
+*::-moz-selection {
+    background: #ccc;
+}
+
+*::-webkit-selection {
+    background: #ccc;
+}
+
+@font-face {
+    font-family: 'Kylie X Font';
+    src: url('../fonts/KylieXFont.eot');
+    src: url('../fonts/KylieXFont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/KylieXFont.woff') format('woff'),
+         url('../fonts/KylieXFont.ttf') format('truetype'),
+         url('../fonts/KylieXFont.svg#Kylie X Font') format('svg');
+}
+
+/* 导航栏 */
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar-toggler {
+    border-radius: 0;
+}
+
+/* 页面共用 */
+.wrap {
+    margin: 30px auto;
+    min-height: 500px;
+}
+
+.content {
+    width: 100%;
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 20px 20px;
+}
+
+.content a:hover {
+    color: #888;
+}
+
+.info {
+    margin-bottom: 5px;
+}
+
+.info span {
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.info i {
+    margin-right: 3px;
+}
+
+/* 列表页面 */
+.list .content .abstract {
+    font-size: 14px;
+}
+
+/* 列表页脚 */
+/* 分页按钮 */
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+    border-radius: 0 !important;
+}
+
+.page-item .page-link {
+    color: #333;
+}
+
+/* 文章页面*/
+.article .content {
+    text-align: center;
+    font-size: 14px;
+    min-height: 300px;
+}
+
+.article .content .post {
+    text-align: left;
+}
+
+.article h3 {
+    display: inline-block;
+}
+
+.article .content .post h1 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.article .content .info span {
+    margin-right: 15px;
+}
+
+.post pre {
+    color: #bbb;
+    padding: 10px 10px;
+}
+
+.post h1 {
+    padding-top: 30px;
+    padding-bottom: 5px;
+}
+
+.post a {
+    color: #fff;
+    background-color: #333;
+    padding: 0 5px;
+    margin-left: 5px;
+}
+
+.post a:hover {
+    background-color: #ff3333;
+    color: #fff;
+}
+
+.post code {
+    background-color: #eee;
+    margin: 0 3px;
+    padding: 0 5px;
+}
+
+.fancybox-img {
+    cursor: zoom-in;
+    cursor: -webkit-zoom-in;
+    display: block !important;
+    height: auto;
+    max-width: 100%;
+    border: 1px solid #ddd;
+    padding: 5px 5px;
+    margin: 10px auto;
+}
+
+.fancybox-a {
+    padding: 0 0 !important;
+}
+
+/* 文章页脚 */
+/* 添加评论 */
+.add-comment .form-control,
+.add-comment .btn {
+    border-radius: 0;
+}
+
+/* 评论区 */
+.comment-list {
+    margin-top: 40px;
+}
+
+.comment-item {
+    padding: 15px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.comment-item .post-time {
+    font-size: 13px;
+    color: #aaa;
+    margin-left: 10px;
+}
+
+/* 标签云页 */
+
+.tags .content {
+    text-align: center;
+    min-height: 300px;
+}
+
+.tags .content a {
+    padding: 0 10px;
+}
+
+/* 标签页 */
+
+/* 归档页 */
+
+.archive .content {
+    min-height: 500px;
+}
+
+.archive .year {
+    padding: 10px 0;
+}
+
+.archive .year-title {
+    padding-bottom: 10px;
+}
+
+.archive .title {
+    text-align: center;
+}
+
+.archive .container {
+    width: 90%;
+}
+
+/* 页脚 */
+.footer {
+    background-color: #333;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    padding: 40px 0;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover {
+    color: #ddd;
+}
+
+.footer ul,
+.footer p {
+    margin-bottom: 0;
+    padding: 4px;
+}
+
+.footer ul li {
+    display: inline;
+    letter-spacing: normal;
+}
+
+.footer ul li:after {
+    content: '|';
+    margin: 0 6px;
+}
+
+.footer ul li:last-child:after {
+    display: none;
+}
+
+.footer ul {
+    letter-spacing: -4px;
+}
+
+.back-to-top {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 2018;
+    padding: 5px 9px;
+    width: initial;
+    background: #222;
+    font-size: 12px;
+    opacity: .6;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}

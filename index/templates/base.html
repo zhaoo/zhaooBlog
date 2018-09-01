@@ -1,0 +1,72 @@
+{% load static %}
+{% load index_tags %}
+{% get_setting as setting %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/highlight.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}">
+    {% block title %}
+    <title>{{ setting.title }}</title>
+    {% endblock %}
+    {% block meta %}
+    <meta name="keywords" content="{{ setting.keywords }}" />
+    <meta name="description" content="{{ setting.description }}">
+    {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/" style="font-family:Kylie X Font">{{ setting.title|capfirst }}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/"><!--<i class="fa fa-home"></i>&nbsp;-->首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index:tags' %}"><!--<i class="fa fa-tag"></i>&nbsp;-->标签</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index:archive' %}">归档</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <footer class="footer">
+        <div class="container">
+            <ul class="link">
+                <li>
+                    <a href="/admin">管理后台</a>
+                </li>
+                <li><a href="#">关于作者</a></li>
+                <li><a href="{% url 'index:sitemap' %}">站点地图</a></li>
+                <li><a href="{% url 'index:rss' %}">RSS</a></li>
+            </ul>
+            <p class="copyright">Copyright© 2018-2018 | <a href="https://www.izhaoo.com/">zhaoo</a> .AllRightsReserved</p>
+        </div>
+    </footer>
+    <div class="back-to-top"><i class="fa fa-arrow-up"></i></div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/layer/layer.js' %}"></script>
+    <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'js/particles.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    {% block footer %}{% endblock %}
+</body>
+
+</html>

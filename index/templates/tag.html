@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>标签: {{ tag.name }} | zhaoo</title>
+{% endblock %}
+{% block content %}
+<div class="container wrap tag">
+    {% for article in articles %}
+    <div class="content">
+        <h3>
+            <a href="{% url 'index:article' article.id %}">{{ article.title }}</a>
+        </h3>
+        <div class="info">
+            <span>
+                <i class="fa fa-tag">{% for tag in article.tags.all %}<a href="{% url 'index:tag' tag.name %}" rel="tag"> #{{ tag.name }}</a>{% endfor %}</i>
+            </span>
+            <span>
+                <i class="fa fa-clock-o"></i>{{ article.post_time|date:"Y-m-d" }}
+            </span>
+            <span>
+                <i class="fa fa-eye"></i>{{ article.views }}
+            </span>
+        </div>
+        <div class="abstract">
+            <p>{% if article.abstract %}{{ article.abstract }}{% else %}{{ article.content|safe|truncatewords_html:"80"|striptags }}{% endif %}</p>
+        </div>
+    </div>
+    {% endfor %}
+    <div>
+        <ul class="pagination pagination-sm">
+            {% if articles.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ articles.previous_page_number }}"><</a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link"><</a></li>
+            {% endif %}
+            <li class="page-item disabled"><a class="page-link">{{ articles.number }}/{{ articles.paginator.num_pages }}</a></li>
+            {% if articles.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ articles.next_page_number }}">></a></li>
+            {% else %}
+                <li class="page-item disabled"><a class="page-link">></a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

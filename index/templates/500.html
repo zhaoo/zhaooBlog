@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>zhaoo -- 500</title>
+    <style type="text/css">
+    body {
+        background-color: #0099CC;
+        color: #FFFFFF;
+        font-family: Microsoft Yahei, "Helvetica Neue", Helvetica, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+        margin-left: 100px;
+    }
+
+    .face {
+        font-size: 100px;
+    }
+
+    p {
+        font-size: 24px;
+        padding: 8px;
+        line-height: 40px;
+    }
+
+    .err-button.back a {
+        text-decoration: none;
+        margin: 0 10px;
+        padding: 10px 30px;
+        border: 2px solid #ffffff;
+        color: #ffffff
+    }
+
+    .err-button.back a:hover {
+        -webkit-box-shadow: 0 0 12px rgba(117, 247, 211, .85);
+        -moz-box-shadow: 0 0 12px rgba(117, 247, 211, .85);
+        box-shadow: 0 0 12px rgba(117, 247, 211, .85);
+        -o-box-shadow: 0 0 12px rgba(117, 247, 211, .85)
+    }
+    /*自适应-针对小屏幕优化*/
+
+    @media screen and (max-width: 600px) {
+        body {
+            margin: 0 10px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 30px;
+        }
+        .err-button.back a {
+            padding: 4px 12px;
+            border: 1px solid #ffffff
+        }
+        .err-button.back a:hover {
+            - webkit-box-shadow: 0 0 12px -moz-box-shadow: 0 0 12px box-shadow: 0 0 12px -o-box-shadow: 0 0 12px
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <span class="face">:(</span>
+    <p>500, Internal Server Error.
+        <br>
+        <br>
+        <div class="err-button back">
+            <a id="gohome" href="http://www.izhao.me/">返回首页</a>
+            <a id="golast" href=javascript:history.go(-1);>返回上一页</a>
+        </div>
+    </p>
+</body>
+
+</html>

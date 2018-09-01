@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}
+<title>标签 | zhaoo</title>
+{% endblock %}
+{% block content %}
+<div class="container wrap tags">
+    <div class="content">
+        <h3>标签</h3>
+        <p>共计 {{ tags.count }} 个标签</p>
+        {% for tag in tags %}
+            <a href="{% url 'index:tag' tag.name %}"
+            {% if tag.number <= 1 %}
+                    style="font-size: 12.5px; color: #999"
+            {% elif tag.number <= 2 %}
+                    style="font-size: 15px; color: #666"
+            {% elif tag.number <= 5 %}
+                    style="font-size: 20px; color: #444"
+            {% elif tag.number <= 10 %}
+                    style="font-size: 25px; color: #222"
+            {% elif tag.number <= 20 %}
+                    style="font-size: 30px; color: #111"
+            {% else %}
+                    style="font-size: 35px; color: #000"
+            {% endif %}>{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

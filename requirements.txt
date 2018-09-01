@@ -1,0 +1,6 @@
+django
+pylint
+pylint-django
+autopep8
+django-mdeditor
+django-pure-pagination

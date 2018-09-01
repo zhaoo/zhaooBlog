@@ -1,0 +1,69 @@
+{% extends "base.html" %} 
+{% block title %}
+<title>{{ article.title }} | zhaoo</title>
+{% endblock %}
+{% block meta %}
+<meta name="keywords" content="{% if article.keywords %}{{ article.keywords }}{% else %}{% for tag in article.tags.all %}{{ tag.name }},{% endfor %}{% endif %}" />
+<meta name="description" content="{% if article.abstract %}{{ article.abstract }}{% else %}{{ article.content|safe|truncatewords_html:'30'|striptags }}{% endif %}">
+{% endblock %}
+{% block content %}
+    <div class="container wrap article">
+        <div class="content">
+            <h3>{{ article.title }}</h3>
+            <div class="info">
+                <span>
+                    <i class="fa fa-tag"></i>标签:{% for tag in article.tags.all %}<a href="{% url 'index:tag' tag.name %}" rel="tag"> #{{ tag.name }}</a>{% endfor %}
+                </span>
+                <span>
+                    <i class="fa fa-clock-o"></i>发布时间: {{ article.post_time|date:"Y-m-d" }}
+                </span>
+                <span>
+                    <i class="fa fa-eye"></i>阅读量: {{ article.views }}
+                </span>
+                {% if request.user.is_authenticated %}
+                <span>
+                    <a href="/admin/index/article/{{ article.id }}/change/"><i class="fa fa-file-text"></i>编辑</a>
+                </span>
+                {% endif %}
+            </div>
+            <div class="post">
+                {{ article.content|safe }}
+            </div>
+        </div>
+    </div>
+    <div class="container wrap article-footer">
+        <div class="content">
+            <div class="add-comment">
+                <form id="commentForm">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label for="nicname">昵称:</label>
+                            <input name="nicname" type="text" class="form-control" id="nicname" placeholder="">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="email">邮箱:</label>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">评论:</label>
+                        <textarea name="content" class="form-control" id="content" placeholder="雁过留痕，留下您的评论吧~" rows="5"></textarea>
+                    </div>
+                    <input name="article" type="hidden" value="{{ article.id }}">
+                    <button type="button" class="btn btn-dark" id="commentBtn">评论</button>
+                </form>
+            </div>
+            <div class="comment-list">
+                <span>共{{ article.comment_set.all|length}}条评论</span>
+                {% for comment in article.comment_set.all %}
+                    <div class="comment-item">
+                        <span>{{ comment.nicname}}</span>
+                        <span class="post-time">{{ comment.comment_time|date:"Y-m-d" }}</span>
+                        <p>{{ comment.content }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

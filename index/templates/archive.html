@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>归档 | zhaoo</title>
+{% endblock %}
+{% block content %}
+<div class="container wrap archive">
+    <div class="content">
+        <div class="title">
+            <h3>归档</h3>
+            <p>共计 {{ articles.count }} 篇文章</p>
+        </div>
+        <div class="container">
+            {% regroup articles by post_time.year as years %}
+                {% for year in years %}
+                    <div class="year">
+                        <h3 class="year-title">{{ year.grouper }}</h3>
+                        {% for article in year.list %}
+                            <p>
+                                <span>{{ article.post_time|date:"m-d" }}</span>
+                                <span>---</span>
+                                <span><a href="{% url 'index:article' article.id %}">{{ article.title }}</a></span>
+                            </p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
