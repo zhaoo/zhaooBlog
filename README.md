@@ -35,7 +35,7 @@ zhaooBlog 是一个基于Django 开发的个人博客系统。
 
 ## 安装
 
-开发环境 (Win) ：
+[![开发环境](https://img.shields.io/badge/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83-Win-blue.svg)]()
 
 ### 安装 Python3.7
 
