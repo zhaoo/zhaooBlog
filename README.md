@@ -7,7 +7,7 @@ zhaooBlog 是一个基于Django 开发的个人博客系统。
 [![Django](https://img.shields.io/badge/Django-2.1.1-green.svg)](https://docs.djangoproject.com/en/2.1/releases/2.1.1/)
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](https://mit-license.org/)
 
-* [预览](http://demo.izhaoo.com/zhaooblog/)
+* [预览](http://zhaooblog.izhaoo.com)
 
 ## 介绍
 
